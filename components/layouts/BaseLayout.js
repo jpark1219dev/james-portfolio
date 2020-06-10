@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 
-import Panel from '../shared/Panel';
 import Navigation from '../shared/Navigation';
 import Footer from '../shared/Footer';
 
@@ -23,7 +22,6 @@ const BaseLayout = props => {
 				{/* <link rel="icon" type="image/ico" href="/favicon.ico" /> */}
 			</Head>
 			<div className="container">
-				<Panel className={`panel-${panelType}`} />
 				<Navigation className={`nav-${headerType}`} />
 				<main className={`main-${mainClass}`}>
 					{children}
