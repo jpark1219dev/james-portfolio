@@ -1,11 +1,14 @@
 import React from 'react';
+import BaseLayout from '../components/layouts/BaseLayout';
 
 class Index extends React.Component {
 	render() {
 		return(
-			<div>
-				Hello World!
-			</div>
+			<BaseLayout mainClass="home">
+				<div className="main-header">
+					<div className="heading-primary--main">Hello World!</div>
+				</div>
+			</BaseLayout>
 		)
 	}
 }
