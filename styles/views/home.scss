@@ -1,10 +1,18 @@
-.main-home {
+.page-home {
 	height: 100%;
 
-	.main-header {
+	.home-header {
 		top: 35%;
 		left: 10%;
 		position: relative;
 		transform: translateY(-50%);
+
+		&__navigation {
+			display: flex;
+
+			.nav-link {
+				margin-right: 2rem;
+			}
+		}
 	}
 }

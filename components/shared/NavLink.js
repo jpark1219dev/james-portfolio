@@ -1,5 +1,5 @@
 import React, { Children } from 'react';
-import { Link } from '../routes';
+import { Link } from '../../routes';
 import { withRouter } from 'next/router';
 
 const NavLink = ({children, router, ...props}) => {

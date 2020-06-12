@@ -12,7 +12,7 @@ class Callback extends React.Component {
 	render() {
 		return(
 			<BaseLayout mainClass="home">
-				<div className="main-header">
+				<div className="home-header">
 					<div className="heading-primary--main">Signing you in...</div>
 				</div>
 			</BaseLayout>

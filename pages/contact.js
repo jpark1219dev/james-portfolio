@@ -2,6 +2,7 @@ import React from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import auth0 from '../services/auth0';
 import NavLink from '../components/shared/NavLink';
+import withAuth from '../components/hoc/withAuth';
 
 class Index extends React.Component {
 	render() {
@@ -25,7 +26,7 @@ class Index extends React.Component {
 									<span className="heading-tertiary nav-link">Contact</span>
 								</NavLink>
 							</div>
-							<div className="heading-primary--main">Hello World!</div>
+							<div className="heading-primary--main">Contact!</div>
 							<div className="heading-primary--sub mt-sm nav-link" onClick={auth0.login}>Log In</div>
 						</>
 					)}
@@ -46,6 +47,7 @@ class Index extends React.Component {
 								</NavLink>
 							</div>
 							<div className="heading-primary--main">Hi {user.name}!</div>
+							<div className="heading-primary--main">You are in Contact!</div>
 							<div className="heading-primary--sub mt-sm nav-link" onClick={auth0.logout}>Log Out</div>
 						</>
 					)}
@@ -55,4 +57,4 @@ class Index extends React.Component {
 	}
 }
 
-export default Index;
+export default withAuth('admin')(Index);

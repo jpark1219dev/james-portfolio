@@ -1,11 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 
-import Navigation from '../shared/Navigation';
-import Footer from '../shared/Footer';
+import Navigation from './Navigation';
+import Footer from './Footer';
 
 const BaseLayout = props => {
-	const { panelType, headerType, mainClass, footerType, title, cannonical, children } = props;
+	const { headerType, mainClass, footerType, title, cannonical, children } = props;
 
 	return (
 		<React.Fragment>
@@ -23,7 +23,7 @@ const BaseLayout = props => {
 			</Head>
 			<div className="container">
 				<Navigation className={`nav-${headerType}`} />
-				<main className={`main-${mainClass}`}>
+				<main className={`page-${mainClass}`}>
 					{children}
 				</main>
 			</div>
