@@ -21,6 +21,8 @@ exports.checkRole = role => (req, res, next) => {
 	if(user && user[NAMESPACE + '/role'] && user[NAMESPACE + '/role'] === role) {
 		next();
 	} else {
-		return res.status(401).send({title: 'Denied', detail: 'Access is forbidden due to missing credentials'})
+		return res.status(401).send(
+			{title: 'Missing Permission', detail: 'Access is forbidden due to missing permission'}
+		)
 	}
 }
