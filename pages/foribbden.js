@@ -1,10 +1,10 @@
 import React from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
-import { withRouter } from 'next/router';
+import { Router } from '../routes';
 
 class Forbidden extends React.Component {
 	componentDidMount = () => {
-		setTimeout(() => {this.props.router.push('/')}, 2000);
+		setTimeout(() => {Router.pushRoute('/')}, 2000);
 	}
 
 	render() {
