@@ -4,7 +4,7 @@ import { Router } from '../routes';
 
 class FourZeroFour extends React.Component {
 	componentDidMount = () => {
-		setTimeout(() => {Router.pushRoute('/')}, 3000);
+		setTimeout(() => {Router.pushRoute('/')}, 2000);
 	}
 
 	render() {
@@ -19,4 +19,4 @@ class FourZeroFour extends React.Component {
 	}
 }
 
-export default (FourZeroFour);
+export default FourZeroFour;

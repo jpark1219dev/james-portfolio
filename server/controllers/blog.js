@@ -1,5 +1,6 @@
 const Blog = require('../models/blog');
 const slugify = require('slugify');
+const moment = require('moment');
 const AsyncLock = require('async-lock');
 const lock = new AsyncLock();
 
@@ -22,6 +23,9 @@ exports.createBlog = (req, res) => {
 			const blogData = req.body;
 			const blog = new Blog(blogData);
 			if(req.user) {
+				console.log(blog);
+				console.log(moment().format());
+				//make blog title unique
 				blog.userId = req.user.sub;
 				blog.author = req.user.name;
 			}

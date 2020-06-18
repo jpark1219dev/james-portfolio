@@ -12,6 +12,7 @@ class Forbidden extends React.Component {
 			<BaseLayout mainClass="home">
 				<div className="home-header">
 					<div className="heading-primary--main">{this.props.title}</div>
+					<div className="heading-primary--sub mt-sm">Being redirected...</div>
 				</div>
 			</BaseLayout>
 		)
@@ -22,4 +23,4 @@ Forbidden.defaultProps = {
 	title: 'Oops... something went wrong',
 }
 
-export default withRouter(Forbidden);
+export default Forbidden;
