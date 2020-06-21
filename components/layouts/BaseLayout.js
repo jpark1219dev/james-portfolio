@@ -5,10 +5,10 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 
 const BaseLayout = props => {
-	const { headerType, mainClass, footerType, title, cannonical, children } = props;
+	const { layoutType, headerType, mainClass, footerType, title, cannonical, children } = props;
 
 	return (
-		<React.Fragment>
+		<div className="root">
 			<Head>
 				<title>{title}</title>
 				<meta name="description" content="My name is James Park and I am an experienced software engineer" />
@@ -21,14 +21,14 @@ const BaseLayout = props => {
 				{cannonical && <link rel="cannonical" href={`${process.env.BASE_URL}${cannonical}`} />}
 				{/* <link rel="icon" type="image/ico" href="/favicon.ico" /> */}
 			</Head>
-			<div className="container">
+			<div className={`layout-${layoutType}`}>
 				<Navigation className={`nav-${headerType}`} />
 				<main className={`page-${mainClass}`}>
 					{children}
 				</main>
 			</div>
 			<Footer className={`footer-${footerType}`} />
-		</React.Fragment>
+		</div>
 	)
 }
 
@@ -37,6 +37,7 @@ BaseLayout.defaultProps = {
 	headerType: 'default',
 	mainClass: 'default',
 	footerType: 'default',
+	layoutType: 'default',
 	title: 'James Park - Portfolio',
 	cannonical: false
 }
