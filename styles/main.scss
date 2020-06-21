@@ -7,10 +7,12 @@
 @import "./base/typography";
 
 @import "./components/banner";
+@import "./components/slate-editor";
 
+@import "./layout/layout";
 @import "./layout/container";
-@import "./layout/content";
 @import "./layout/footer";
 @import "./layout/navigation";
+@import "./layout/panel";
 
 @import "./views/home";

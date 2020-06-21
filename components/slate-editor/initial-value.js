@@ -6,13 +6,41 @@ export const initialValue = Value.fromJSON({
     nodes: [
       {
         object: 'block',
+        type: 'heading-one',
+        nodes: [
+          {
+            object: 'text',
+            leaves: [
+              {
+                text: 'Title...',
+              },
+            ],
+          },
+        ],
+			},
+			{
+        object: 'block',
+        type: 'heading-two',
+        nodes: [
+          {
+            object: 'text',
+            leaves: [
+              {
+                text: 'Subtitle...',
+              },
+            ],
+          },
+        ],
+			},
+			{
+        object: 'block',
         type: 'paragraph',
         nodes: [
           {
             object: 'text',
             leaves: [
               {
-                text: 'A line of text in a paragraph.',
+                text: 'Write your story...',
               },
             ],
           },

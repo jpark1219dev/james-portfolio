@@ -1,12 +1,12 @@
-.container {
-	background-color: var(--white);
-	width: 100%;
-	height: 100vh;
-	background-image: url(https://www.alexcoven.com/assets/img/hero.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: 100% 0;
-	position: fixed;
+.base-container {
+	width: 1127px;
+	//insert media queries to adjust width of containers here
+	margin-left: auto;
+	margin-right: auto;
+}
 
-	@include noselect;
+.base-grid {
+	margin: -1rem;
+	display: flex;
+	flex-wrap: wrap;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Panel } from '../../components/layouts';
 
 import HoverMenu from './HoverMenu';
 import ControlMenu from './ControlMenu';
@@ -78,12 +79,12 @@ export default class SlateEditor extends React.Component {
 	}
 
 	getTitle = () => {
+		const { value } = this.state;
+		const firstBlock = value.document.getBlocks().get(0);
+		const secondBlock = value.document.getBlocks(0).get(1);
 
-		//set getting title here
-		// const title = something here
-
-		//set getting subtitle here
-		// const subtitle = something here
+		const title = firstBlock && firstBlock.text ? firstBlock.text : 'No Title';
+		const subtitle = secondBlock && secondBlock.text ? secondBlock.text : 'No Subtitle';
 
 		return {
 			title,
@@ -106,15 +107,18 @@ export default class SlateEditor extends React.Component {
 		return (
 			<React.Fragment>
 				{ isLoaded &&
-					<Editor {...this.props} //this picks up the save prop on BlogEditor.js for <SlateEditor/>
-						placeholder="Enter some text..."
-						value={this.state.value}
-						onChange={this.onChange}
-						onKeyDown={this.onKeyDown}
-						renderMark={renderMark}
-						renderNode={renderNode}
-						renderEditor={this.renderEditor}
-					/>
+					<React.Fragment>
+						<Editor {...this.props} //this picks up the save prop on BlogEditor.js for <SlateEditor/>
+							placeholder="Enter text here..."
+							value={this.state.value}
+							onChange={this.onChange}
+							onKeyDown={this.onKeyDown}
+							renderMark={renderMark}
+							renderNode={renderNode}
+							renderEditor={this.renderEditor}
+							className={`blog-body`}
+						/>
+					</React.Fragment>
 				}
 			</React.Fragment>
 		)
@@ -125,14 +129,27 @@ export default class SlateEditor extends React.Component {
 		const { isLoading } = props;
 		return (
 			<React.Fragment>
-				<ControlMenu isLoading={isLoading} save={() => this.save()}></ControlMenu>
-				{children}
-				<HoverMenu innerRef={menu => (this.menu = menu)} editor={editor} />
-				<style jsx>
-					{`
-						@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-					`}
-				</style>
+				<Panel width={13}>
+					<div className={`panel-group`}>
+						<div className="slate-editor-content">
+							{children}
+						</div>
+						<HoverMenu innerRef={menu => (this.menu = menu)} editor={editor} />
+						<style jsx>
+							{`
+								@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+							`}
+						</style>
+					</div>
+				</Panel>
+				<Panel width={7}>
+					<div className={`panel-group`}>
+						<ControlMenu isLoading={isLoading} save={() => this.save()} />
+					</div>
+					<div className={`panel-group`}>
+						<ControlMenu isLoading={isLoading} save={() => this.save()} />
+					</div>
+				</Panel>
 			</React.Fragment>
 		)
 	}

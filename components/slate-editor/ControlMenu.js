@@ -1,11 +1,11 @@
 const ControlMenu = (props) => {
 	return (
 		<div className="control-menu">
-			<h1 className="title"> Write Your Story... </h1>
-			<div className="status-box">
+			<div className="heading-primary--main mb-sm"> Create Blog </div>
+			<button className={`btn-primary mb-sm`} disabled={props.isLoading} onClick={props.save} color="success">Save</button>
+			<div className="heading-primary--sub">
 				{ props.isLoading? 'Saving...' : 'Saved' }
 			</div>
-			<button disabled={props.isLoading} onClick={props.save} color="success">Save</button>
 		</div>
 	)
 }
