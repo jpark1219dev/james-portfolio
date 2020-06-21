@@ -23,8 +23,6 @@ exports.createBlog = (req, res) => {
 			const blogData = req.body;
 			const blog = new Blog(blogData);
 			if(req.user) {
-				console.log(blog);
-				console.log(moment().format());
 				//make blog title unique
 				blog.userId = req.user.sub;
 				blog.author = req.user.name;
@@ -34,6 +32,7 @@ exports.createBlog = (req, res) => {
 				setTimeout(() => {done()}, 2000);
 				if(err) {
 					return res.status(422).send(err);
+					return res.status(422).send('this is nuts!');
 				}
 				return res.json(createdBlog);
 			})
@@ -43,4 +42,58 @@ exports.createBlog = (req, res) => {
 	} else {
 		return res.status(422).send({message: 'Blog is currently being saved'});
 	};
+}
+
+exports.getBlogById = (req, res) => {
+	const blogId = req.params.id;
+
+	Blog.findById(blogId, (err, foundBlog) => {
+		if (err) {
+			return res.status(422).send(err);
+		}
+		return res.json(foundBlog);
+	})
+}
+
+exports.updateBlog = (req, res) => {
+	const blogId = req.params.id;
+	const blogData = req.body;
+
+	Blog.findById(blogId, function(err, foundBlog) {
+		if (err) {
+			return res.status(422).send(err);
+		}
+
+		//TEMP TO TURN OFF LATER TO NOT DEFAULT UPDATE TO PUBLISHING BLOGS
+		blogData.status = "published";
+
+		//find way to update slug when existing published blogs with slug are updated using dates in url 
+		if (blogData.status && blogData.status === "published" && !foundBlog.slug) {
+			const newSlug = blogData.title ? blogData.title : foundBlog.title;
+			foundBlog.slug = slugify(newSlug, {
+				replacement: '-',
+				remove: null,
+				lower: true
+			});
+		}
+
+		foundBlog.set(blogData);
+		foundBlog.updatedAt = new Date();
+		foundBlog.save(function(err, foundBlog) {
+			if (err) {
+				return res.status(422).send(err);
+			}
+			return res.json(foundBlog);
+		})
+	})
+}
+
+exports.getBlogBySlug = (req, res) => {
+	const slug = req.params.slug;
+	Blog.findOne({slug}, function(err, foundBlog) {
+		if (err) {
+			return res.status(422).send(err);
+		}
+		return res.json(foundBlog);
+	});
 }

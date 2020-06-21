@@ -4,13 +4,17 @@ div[class*="panel"] {
 	box-sizing: border-box;
 }
 
+.panel-item {
+	/*insert logic here for item group with divider within panel groups*/
+}
+
 .panel-group {
 	background: rgba(255, 255, 255, .8);
 	border: 1px solid var(--gray-20f);
 	border-radius: 1rem;
 
 	&:not(:first-of-type) {
-		margin-top: 1rem;
+		margin-top: 2rem;
 	}
 }
 

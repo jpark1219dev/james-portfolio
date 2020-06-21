@@ -1,6 +1,10 @@
 const routes = require('next-routes');
+//https://github.com/fridays/next-routes/blob/master/README.md
 
 module.exports = routes()
-.add('blogEditor', '/blogs/new')
+.add('blog-create', '/blogs/new', 'blogEditor')
+.add('blog-update', '/blogs/edit/:id', 'blogEditor')
+.add('blog-view', '/blogs/:slug', 'blogView')
+// .add('blog-update', 'blogEditor', '/blogs/:id/edit')
 // .add('blogs', '/blogs/dashboard')
 

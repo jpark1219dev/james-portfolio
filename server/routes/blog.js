@@ -8,4 +8,9 @@ router.get('/me', authService.checkJWT, authService.checkRole('admin'), blogCtrl
 
 router.post('', authService.checkJWT, authService.checkRole('admin'), blogCtrl.createBlog);
 
+router.get('/:id', blogCtrl.getBlogById);
+
+router.patch('/:id', authService.checkJWT, authService.checkRole('admin'), blogCtrl.updateBlog);
+
+router.get('/s/:slug', blogCtrl.getBlogBySlug);
 module.exports = router;
