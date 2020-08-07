@@ -4,7 +4,9 @@ const routes = require('next-routes');
 module.exports = routes()
 .add('blog-create', '/blogs/new', 'blogEditor')
 .add('blog-update', '/blogs/edit/:id', 'blogEditor')
+.add('blogs-dashboard', '/blogs/dashboard', 'blogDashboard')
 .add('blog-view', '/blogs/:slug', 'blogView')
+
 // .add('blog-update', 'blogEditor', '/blogs/:id/edit')
-// .add('blogs', '/blogs/dashboard')
+
 

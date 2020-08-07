@@ -65,9 +65,11 @@ exports.updateBlog = (req, res) => {
 		}
 
 		//TEMP TO TURN OFF LATER TO NOT DEFAULT UPDATE TO PUBLISHING BLOGS
-		blogData.status = "published";
+		// blogData.status = "published";
 
 		//find way to update slug when existing published blogs with slug are updated using dates in url 
+		//1. there needs to be a way for slug to change when blog of title get changed
+		//2. there needs to be a way to avoid blogs with same titles and get same slug urls creating error
 		if (blogData.status && blogData.status === "published" && !foundBlog.slug) {
 			const newSlug = blogData.title ? blogData.title : foundBlog.title;
 			foundBlog.slug = slugify(newSlug, {

@@ -55,3 +55,8 @@ export const updateBlog = (blogData, blogId) => {
 export const getBlogBySlug = async slug => {
 	return await axiosInstance.get(`/blogs/s/${slug}`).then(response => response.data);
 }
+
+export const getUserBlogs = async req => {
+	return await axiosInstance.get(`/blogs/list`, setAuthHeader(req))
+		.then(response => response.data);
+}
