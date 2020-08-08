@@ -1,60 +1,28 @@
-import React from 'react';
-import BaseLayout from '../components/layouts/BaseLayout';
-import auth0 from '../services/auth0';
-import NavLink from '../components/shared/NavLink';
+import React from "react";
 import withAuth from '../components/hoc/withAuth';
+import { BaseLayout, BaseContainer } from "../components/layouts";
+import NavHeader from "../components/layouts/NavHeader";
 
-class Index extends React.Component {
-	render() {
-		const { isAuthenticated, user } = this.props.auth;
-		return(
-			<BaseLayout mainClass="home">
-				<div className="home-header">
-					{ !isAuthenticated && (
-						<>
-							<div className="home-header__navigation mb-sm"> 
-								<NavLink route="/about">
-									<span className="heading-tertiary nav-link">About</span>
-								</NavLink>
-								<NavLink route="/projects">
-									<span className="heading-tertiary nav-link">Projects</span>
-								</NavLink>
-								<NavLink route="/blogs">
-									<span className="heading-tertiary nav-link">Blogs</span>
-								</NavLink>
-								<NavLink route="/contact">
-									<span className="heading-tertiary nav-link">Contact</span>
-								</NavLink>
-							</div>
-							<div className="heading-primary--main">Contact!</div>
-							<div className="heading-primary--sub mt-sm nav-link" onClick={auth0.login}>Log In</div>
-						</>
-					)}
-					{ isAuthenticated && (
-						<>
-							<div className="home-header__navigation mb-sm"> 
-								<NavLink route="/about">
-									<span className="heading-tertiary nav-link">About</span>
-								</NavLink>
-								<NavLink route="/projects">
-									<span className="heading-tertiary nav-link">Projects</span>
-								</NavLink>
-								<NavLink route="/blogs">
-									<span className="heading-tertiary nav-link">Blogs</span>
-								</NavLink>
-								<NavLink route="/contact">
-									<span className="heading-tertiary nav-link">Contact</span>
-								</NavLink>
-							</div>
-							<div className="heading-primary--main">Hi {user.name}!</div>
-							<div className="heading-primary--main">You are in Contact!</div>
-							<div className="heading-primary--sub mt-sm nav-link" onClick={auth0.logout}>Log Out</div>
-						</>
-					)}
-				</div>
-			</BaseLayout>
-		)
-	}
+class Contact extends React.Component {
+  render() {
+    const { isAuthenticated, user, isAdmin } = this.props.auth;
+    return (
+      <BaseLayout mainClass="home">
+        <BaseContainer>
+          <NavHeader isAdmin={isAdmin} isAuthenticated={isAuthenticated} />
+          {!isAuthenticated && (
+            <div className="heading-primary--main">Contact!</div>
+          )}
+          {isAuthenticated && (
+            <>
+              <div className="heading-primary--main">Hi {user.name}!</div>
+              <div className="heading-primary--main">You are in Contact!</div>
+            </>
+          )}
+        </BaseContainer>
+      </BaseLayout>
+    );
+  }
 }
 
-export default withAuth('admin')(Index);
+export default withAuth("admin")(Contact);

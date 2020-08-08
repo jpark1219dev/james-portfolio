@@ -95,10 +95,10 @@ export default class SlateEditor extends React.Component {
 	save = () => {
 		const { value } = this.state;
 		const { save, isLoading } = this.props;
-		const headingValues = this.getTitle();
-		const text = html.serialize(value);
+		const headers = this.getTitle();
+		const story = html.serialize(value);
 
-		!isLoading && save(text, headingValues);
+		!isLoading && save(story, headers);
 	}
 
 	render() {
@@ -126,7 +126,7 @@ export default class SlateEditor extends React.Component {
 
 	renderEditor = (props, editor, next) => {
 		const children = next();
-		const { isLoading } = props;
+		const { isLoading, mode } = props;
 		return (
 			<React.Fragment>
 				<Panel width={13}>
@@ -144,11 +144,11 @@ export default class SlateEditor extends React.Component {
 				</Panel>
 				<Panel width={7}>
 					<div className={`panel-group`}>
-						<ControlMenu isLoading={isLoading} save={() => this.save()} />
+						<ControlMenu mode={mode} isLoading={isLoading} save={() => this.save()} />
 					</div>
-					<div className={`panel-group`}>
-						<ControlMenu isLoading={isLoading} save={() => this.save()} />
-					</div>
+					{/* <div className={`panel-group`}>
+						<ControlMenu mode={mode} isLoading={isLoading} save={() => this.save()} />
+					</div> */}
 				</Panel>
 			</React.Fragment>
 		)

@@ -12,7 +12,7 @@ export const initialValue = Value.fromJSON({
             object: 'text',
             leaves: [
               {
-                text: 'Title...',
+                text: 'Title... ',
               },
             ],
           },
@@ -26,7 +26,7 @@ export const initialValue = Value.fromJSON({
             object: 'text',
             leaves: [
               {
-                text: 'Subtitle...',
+                text: 'Subtitle... ',
               },
             ],
           },
@@ -40,7 +40,7 @@ export const initialValue = Value.fromJSON({
             object: 'text',
             leaves: [
               {
-                text: 'Write your story...',
+                text: 'Write your story... ',
               },
             ],
           },

@@ -17,6 +17,18 @@ const setAuthHeader = req => {
 	return undefined;
 }
 
+const rejectPromise = (resError) => {
+	let error = {};
+
+	if (resError && resError.response && resError.response.data) {
+		error = resError.response.data;
+	} else {
+		error = resError;
+	}
+
+	return Promise.reject(error);
+}
+
 
 //---------------- PORTFOLIO ACTIONS ----------------------//
 
@@ -27,4 +39,28 @@ export const createBlog = (blogData, lockId) => {
 	return axiosInstance.post(`/blogs?lockId=${lockId}`, blogData, setAuthHeader())
 		.then(response => response.data)
 		.catch(err => rejectPromise(err))
+}
+
+export const getBlogById = blogId => {
+	return axiosInstance.get(`/blogs/${blogId}`)
+		.then(response => response.data)
+}
+
+export const updateBlog = (blogData, blogId) => {
+	return axiosInstance.patch(`/blogs/${blogId}`, blogData, setAuthHeader())
+		.then(response => response.data)
+		.catch(err => rejectPromise(err))
+}
+
+export const getBlogBySlug = async slug => {
+	return await axiosInstance.get(`/blogs/s/${slug}`).then(response => response.data);
+}
+
+export const getUserBlogs = async req => {
+	return await axiosInstance.get(`/blogs/list`, setAuthHeader(req))
+		.then(response => response.data);
+}
+
+export const getBlogs = async() => {
+	return await axiosInstance.get(`/blogs`).then(response => response.data);
 }

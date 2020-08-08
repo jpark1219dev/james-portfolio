@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import Navigation from './Navigation';
+import Navigation from './NavHoverMenu';
 import Footer from './Footer';
 
 const BaseLayout = props => {
@@ -22,7 +22,7 @@ const BaseLayout = props => {
 				{/* <link rel="icon" type="image/ico" href="/favicon.ico" /> */}
 			</Head>
 			<div className={`layout-${layoutType}`}>
-				<Navigation className={`nav-${headerType}`} />
+				{/* <Navigation className={`nav-${headerType}`} /> */}
 				<main className={`page-${mainClass}`}>
 					{children}
 				</main>
