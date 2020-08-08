@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseLayout from '../components/layouts/BaseLayout';
+import { BaseLayout, BaseContainer } from "../components/layouts";
 import { Router } from '../routes';
 
 class Forbidden extends React.Component {
@@ -10,10 +10,10 @@ class Forbidden extends React.Component {
 	render() {
 		return(
 			<BaseLayout mainClass="home">
-				<div className="home-header">
+				<BaseContainer>
 					<div className="heading-primary--main">{this.props.title}</div>
 					<div className="heading-primary--sub mt-sm">Being redirected...</div>
-				</div>
+				</BaseContainer>
 			</BaseLayout>
 		)
 	}

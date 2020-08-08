@@ -60,3 +60,7 @@ export const getUserBlogs = async req => {
 	return await axiosInstance.get(`/blogs/list`, setAuthHeader(req))
 		.then(response => response.data);
 }
+
+export const getBlogs = async() => {
+	return await axiosInstance.get(`/blogs`).then(response => response.data);
+}

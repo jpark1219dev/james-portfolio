@@ -11,7 +11,7 @@ class MyApp extends App {
 			pageProps = await Component.getInitialProps(ctx);
 		}
 		const isAdmin = user && user[process.env.NAMESPACE + '/role'] === 'admin'
-		const auth = { user, isAuthenticated: !!user, isAdmin };
+		const auth = { user, isAuthenticated: !!user, isAdmin: !!isAdmin };
 		return { pageProps, auth };
 	}
 

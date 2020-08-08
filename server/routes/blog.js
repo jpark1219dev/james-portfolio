@@ -13,4 +13,7 @@ router.get('/:id', blogCtrl.getBlogById);
 router.patch('/:id', authService.checkJWT, authService.checkRole('admin'), blogCtrl.updateBlog);
 
 router.get('/s/:slug', blogCtrl.getBlogBySlug);
+
+router.get('', blogCtrl.getBlogs);
+
 module.exports = router;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseLayout, BaseContainer, Panel } from '../components/layouts';
+import { BaseLayout, BaseContainer, BaseGrid, Panel, NavHeader } from '../components/layouts';
 
 import { getBlogBySlug } from '../actions';
 
@@ -21,15 +21,19 @@ class BlogView extends React.Component {
 	}
 
 	render() {
-		const { blog } = this.props;
+		const { blog, auth: {isAdmin}, auth: {isAuthenticated} } = this.props;
+
 		return (
-			<BaseLayout mainClass="home">
+			<BaseLayout mainClass="blog">
 				<BaseContainer>
-					<Panel width={10}>
-						<div className={`panel-group`}>
-							<div className={`slate-editor-content`} dangerouslySetInnerHTML={{ __html: blog.story }}></div>
-						</div>
-					</Panel>
+					<NavHeader isAdmin={isAdmin} isAuthenticated={isAuthenticated}/>
+					<BaseGrid>
+						<Panel width={14}>
+							<div className={`panel-group`}>
+								<div className={`slate-editor-content`} dangerouslySetInnerHTML={{ __html: blog.story }}></div>
+							</div>
+						</Panel>
+					</BaseGrid>
 				</BaseContainer>
 			</BaseLayout>
 		)

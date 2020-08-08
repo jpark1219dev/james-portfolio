@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseLayout from '../components/layouts/BaseLayout';
+import { BaseLayout, BaseContainer } from "../components/layouts";
 import { Router } from '../routes';
 
 class FourZeroFour extends React.Component {
@@ -10,10 +10,10 @@ class FourZeroFour extends React.Component {
 	render() {
 		return(
 			<BaseLayout mainClass="home">
-				<div className="home-header">
+				<BaseContainer>
 					<div className="heading-primary--main">404. The page was not found.</div>
 					<div className="heading-primary--sub">Please wait while we redirect you...</div>
-				</div>
+				</BaseContainer>
 			</BaseLayout>
 		)
 	}

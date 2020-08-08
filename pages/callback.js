@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseLayout from '../components/layouts/BaseLayout';
+import { BaseLayout, BaseContainer } from "../components/layouts";
 import auth0Client from '../services/auth0';
 import { withRouter } from 'next/router';
 
@@ -12,9 +12,9 @@ class Callback extends React.Component {
 	render() {
 		return(
 			<BaseLayout mainClass="home">
-				<div className="home-header">
+				<BaseContainer>
 					<div className="heading-primary--main">Signing you in...</div>
-				</div>
+				</BaseContainer>
 			</BaseLayout>
 		)
 	}

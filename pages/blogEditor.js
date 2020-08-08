@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseLayout, BaseContainer } from '../components/layouts';
+import { BaseLayout, BaseContainer, BaseGrid, NavHeader } from '../components/layouts';
 import withAuth from '../components/hoc/withAuth';
 
 import { Router } from '../routes';
@@ -78,21 +78,24 @@ class BlogEditor extends React.Component {
 
 	render() {
 		const { isSaving } = this.state;
-		const { mode, blog } = this.props;
+		const { mode, blog, auth: {isAdmin}, auth: {isAuthenticated} } = this.props;
 
 		return (
 			<BaseLayout mainClass="home">
 				<BaseContainer>
-					{/* <Panel width={10}> */}
-					<Editor 
-						initialValue={mode==="create" ? null : blog.story} 
-						isLoading={isSaving} 
-						save={mode==="create" ? this.saveBlog : this.updateBlog} 
-						mode={mode}
-					/>
-					{/* </Panel> */}
-					{/* <Panel width={10}>
-					</Panel> */}
+					<NavHeader isAdmin={isAdmin} isAuthenticated={isAuthenticated}/>
+					<BaseGrid>
+						{/* <Panel width={10}> */}
+						<Editor 
+							initialValue={mode==="create" ? null : blog.story} 
+							isLoading={isSaving} 
+							save={mode==="create" ? this.saveBlog : this.updateBlog} 
+							mode={mode}
+						/>
+						{/* </Panel> */}
+						{/* <Panel width={10}>
+						</Panel> */}
+					</BaseGrid>
 				</BaseContainer>
 			</BaseLayout>
 		)

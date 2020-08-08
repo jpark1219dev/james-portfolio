@@ -74,9 +74,13 @@ exports.updateBlog = (req, res) => {
 			const newSlug = blogData.title ? blogData.title : foundBlog.title;
 			foundBlog.slug = slugify(newSlug, {
 				replacement: '-',
-				remove: null,
+				remove: /[*+~.()'"!:@?\-]/g,
 				lower: true
 			});
+		}
+
+		if (blogData.status && blogData.status === "draft" && foundBlog.slug) {
+			foundBlog.slug = undefined;
 		}
 
 		foundBlog.set(blogData);
@@ -98,4 +102,15 @@ exports.getBlogBySlug = (req, res) => {
 		}
 		return res.json(foundBlog);
 	});
+}
+
+exports.getBlogs = (req, res) => {
+	Blog.find({status: 'published'})
+		.sort({'createdAt': -1})
+		.exec(function(err, publishedBlogs) {
+			if(err) {
+				return res.status(422).send(err);
+			}
+			return res.json(publishedBlogs);
+		});
 }
