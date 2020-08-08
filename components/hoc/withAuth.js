@@ -1,7 +1,7 @@
 import React from "react";
 import Forbidden from "./../../pages/foribbden";
 
-export default role => 
+const withAuth = role => 
 	Component => {
 		return class withAuth extends React.Component {
 			static async getInitialProps(args) {
@@ -42,3 +42,5 @@ export default role =>
 			}
 		}
 	}
+
+	export default withAuth;
