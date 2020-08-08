@@ -1,2 +1,4 @@
 node_modules
 .next
+/server/config/dev.js
+/server/config/prod.js

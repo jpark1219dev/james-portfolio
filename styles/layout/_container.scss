@@ -1,0 +1,12 @@
+.base-container {
+	width: 1127px;
+	//insert media queries to adjust width of containers here
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.base-grid {
+	margin: -1rem;
+	display: flex;
+	flex-wrap: wrap;
+}

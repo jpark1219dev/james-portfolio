@@ -1,0 +1,52 @@
+$font-primary: open-sans;
+$font-secondary: muli;
+$bold: 700;
+$regular: 400;
+$light: 300;
+
+$font-l: 4.5rem;
+$font-m: 3.8rem;
+$font-ms: 2.8rem;
+$font-s: 1.8rem;
+
+.heading-primary {
+	color: var(--black);
+	&--main {
+		font-family: $font-primary, helvetica, arial, sans-serif;
+		font-size: $font-l;
+		font-weight: $bold;
+		text-transform: uppercase;
+	}
+	&--sub {
+		font-family: $font-primary, helvetica, arial, sans-serif;
+		font-size: $font-ms;
+		font-weight: $regular;
+	}
+}
+
+.heading-secondary {
+	color: var(--black);
+	&--main {
+		font-family: $font-secondary, helvetica, arial, sans-serif;
+		font-weight: $bold;
+	}
+	&--sub {
+		font-family: $font-secondary, helvetica, arial, sans-serif;
+		font-weight: $regular;
+	}
+}
+
+.heading-tertiary {
+	color: var(--black);
+	font-family: $font-primary, helvetica, arial, sans-serif;
+	font-size: $font-s;
+	font-weight: $regular;
+}
+
+
+.paragraph-primary {
+	color: var(--black);
+	font-family: $font-primary, helvetica, arial, sans-serif;
+	font-size: $font-s;
+	font-weight: $regular;
+}

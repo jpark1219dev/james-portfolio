@@ -1,5 +1,6 @@
 import React from "react";
-import { BaseLayout, BaseContainer, NavHeader } from "../components/layouts";
+import { BaseLayout, BaseContainer } from "../components/layouts";
+import NavHeader from "../components/layouts/NavHeader";
 
 class Index extends React.Component {
   render() {
@@ -9,10 +10,15 @@ class Index extends React.Component {
         <BaseContainer>
           <NavHeader isAdmin={isAdmin} isAuthenticated={isAuthenticated} />
           {!isAuthenticated && (
-            <div className="heading-primary--main">Hello World!</div>
+            <div className="heading-primary--main">Projects!</div>
           )}
           {isAuthenticated && (
-            <div className="heading-primary--main">Hi {user.name}!</div>
+            <>
+              <div className="heading-primary--main">Hi {user.name}!</div>
+              <div className="heading-primary--main">
+                You are in Projects!
+              </div>
+            </>
           )}
         </BaseContainer>
       </BaseLayout>

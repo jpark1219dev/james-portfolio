@@ -1,0 +1,13 @@
+.layout-default {
+	background-color: var(--white);
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+	background-image: url(https://www.alexcoven.com/assets/img/hero.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 100% 0;
+	background-attachment: fixed;
+
+	@include noselect;
+}

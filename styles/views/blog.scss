@@ -1,0 +1,15 @@
+.page-blog{
+	padding: 50px 0;
+
+	.blog-title {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.blog-status,
+	.blog-title,
+	.create-blog {
+		cursor: pointer;
+	}
+}
