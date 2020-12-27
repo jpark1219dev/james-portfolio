@@ -87,7 +87,6 @@ class Auth {
 	clientAuth = async () => {
 		const token = Cookies.getJSON('jwt');
 		const verifiedToken = await this.verifyToken(token);
-		console.log('this triggered!');
 		return verifiedToken;
 	}
 

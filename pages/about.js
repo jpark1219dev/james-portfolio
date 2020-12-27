@@ -10,7 +10,10 @@ class Index extends React.Component {
         <BaseContainer>
 					<NavHeader isAdmin={isAdmin} isAuthenticated={isAuthenticated} />
           {!isAuthenticated && (
-              <div className="heading-primary--main">About!</div>
+            <> 
+							<div className="heading-primary--main">Hi I'm James Park. I'm a Web Developer</div>
+							<div className="heading-primary--sub">I live in Los Angeles, CA and work for Songtradr</div>
+						</>
           )}
           {isAuthenticated && (
 						<>

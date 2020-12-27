@@ -32,7 +32,6 @@ exports.createBlog = (req, res) => {
 				setTimeout(() => {done()}, 2000);
 				if(err) {
 					return res.status(422).send(err);
-					return res.status(422).send('this is nuts!');
 				}
 				return res.json(createdBlog);
 			})

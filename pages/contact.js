@@ -11,7 +11,7 @@ class Contact extends React.Component {
         <BaseContainer>
           <NavHeader isAdmin={isAdmin} isAuthenticated={isAuthenticated} />
           {!isAuthenticated && (
-            <div className="heading-primary--main">Contact!</div>
+            <div className="heading-primary--main">Contact me at jpark1219dev@gmail.com</div>
           )}
           {isAuthenticated && (
             <>
@@ -25,4 +25,4 @@ class Contact extends React.Component {
   }
 }
 
-export default withAuth("admin")(Contact);
+export default Contact;
