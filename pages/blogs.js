@@ -30,7 +30,7 @@ class Blogs extends React.Component {
         <BaseContainer>
           <NavHeader isAdmin={isAdmin} isAuthenticated={isAuthenticated} />
 					<BaseGrid>
-						{blogs.map((blog) => (
+						{blogs && blogs.map((blog) => (
 							<React.Fragment key={blog._id}>
                 <Panel width={13}>
                   <div className="panel-group" onClick={() => this.viewBlog(blog)}>

@@ -10,9 +10,9 @@ const NavHeader = ({ isAdmin, isAuthenticated }) => {
           <NavLink route="/about">
             <span className="heading-tertiary nav-link mr-lg">About</span>
           </NavLink>
-          <NavLink route="/projects">
+          {/* <NavLink route="/projects">
             <span className="heading-tertiary nav-link mr-lg">Projects</span>
-          </NavLink>
+          </NavLink> */}
           <NavLink route="/blogs">
             <span className="heading-tertiary nav-link mr-lg">Blogs</span>
           </NavLink>
