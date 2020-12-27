@@ -9,7 +9,7 @@ class Index extends React.Component {
         <BaseContainer>
           <NavHeader isAdmin={isAdmin} isAuthenticated={isAuthenticated} />
           {!isAuthenticated && (
-            <div className="heading-primary--main">Hello World!</div>
+            <div className="heading-primary--main">Hello World! I'm James!</div>
           )}
           {isAuthenticated && (
             <div className="heading-primary--main">Hi {user.name}!</div>
