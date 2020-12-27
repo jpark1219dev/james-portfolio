@@ -7,9 +7,9 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev:client": "next",
 		"dev": "node server/index.js",
-		"build": "node server/index.js",
-    "build:default": "next build",
-    "start": "cross-env NODE_ENV=production node server/index.js"
+    "build": "next build",
+		"start": "cross-env NODE_ENV=production node server/index.js",
+		"start:aws": "npm install && cross-env NODE_ENV=production node index.js"
   },
   "repository": {
     "type": "git",
