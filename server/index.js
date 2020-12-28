@@ -50,7 +50,7 @@ app.prepare().then(() => {
 		// }
 	})
 
-	const PORT = process.env.PORT || 3000;
+	const PORT = process.env.PORT || 3333;
 	server.listen(PORT, (err) => {
 		if(err) { console.log(err); }
 		console.log(`----- Server is ready on port: ${PORT}`)
