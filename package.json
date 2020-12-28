@@ -9,7 +9,7 @@
 		"dev": "node server/index.js",
     "build": "next build",
 		"start": "cross-env NODE_ENV=production node server/index.js",
-		"start:aws": "npm install && cross-env NODE_ENV=production node server/index.js"
+		"start:aws": "npm install && next build && cross-env NODE_ENV=production node server/index.js"
   },
   "repository": {
     "type": "git",
