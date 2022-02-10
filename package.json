@@ -41,7 +41,7 @@
     "mongoose": "^5.9.28",
     "next": "^9.5.4",
     "next-routes": "^1.4.2",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-emotion": "^9.2.12",
