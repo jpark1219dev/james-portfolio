@@ -31,7 +31,7 @@
     "body-parser": "^1.19.0",
     "cross-env": "^7.0.2",
     "emotion": "^9.2.12",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-jwt": "^6.0.0",
     "immutable": "^4.0.0-rc.12",
     "js-cookie": "^2.2.1",
